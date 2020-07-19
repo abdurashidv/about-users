@@ -15,7 +15,7 @@ export class HttpService {
   private readonly  headers: HttpHeaders = new HttpHeaders({
     'Accept' : 'application/json',
     'X-CSRFToken' : 'jlc7gmL0eDUvh4x2n2izKouWhpRsGbF9RTUTUMx3FgXZgtgFO69Lab6zb8OeEHHC',
-    'Authorization' : localStorage.getItem('token')
+    'Authorization' : 'Token ' + localStorage.getItem('token')
   });
 
   private readonly apiurl = 'http://emphasoft-test-assignment.herokuapp.com/api/v1/';
