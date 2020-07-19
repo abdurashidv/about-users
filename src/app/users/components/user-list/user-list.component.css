@@ -4,11 +4,23 @@ table {
 
 th,
 td {
-  border: 1px solid black;
   width: 100px;
   overflow: hidden;
 }
 
-.rashid {
-  width: 20px;
+.custom-spinner {
+  position: relative;
+  margin-top: -15px;
+  height: 200px;
+}
+
+.table-responsive {
+  height:70vh;
+  overflow:scroll;
+}
+
+thead tr:nth-child(1) th{
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }

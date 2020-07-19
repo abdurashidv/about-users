@@ -3,8 +3,8 @@
     <input [(ngModel)]="searchText" name="searchText" class="form-control mr-sm-2" type="text" placeholder="Filter by Username">
   </form>
 </div>
-<div>
-  <table class="table">
+<div [ngClass]="{'table-responsive': !spinnerShowable}">
+  <table class="table table-hover">
     <thead class="thead-dark">
     <tr>
       <th scope="col">#</th>
@@ -19,7 +19,9 @@
     </thead>
     <tbody>
       <tr *ngFor="let user of users | filterusername:searchText">
-        <th scope="row" width="20px"><a routerLink="/user/{{user.id}}">{{user.id}}</a></th>
+        <th title="Click to edit" scope="row" width="20px">
+          <a routerLink="/user/{{user.id}}">{{user.id}}</a>
+        </th>
         <td>{{user.username}}</td>
         <td>{{user.last_name}}</td>
         <td>{{user.first_name}}</td>
@@ -30,4 +32,10 @@
       </tr>
     </tbody>
   </table>
+</div>
+<div class="custom-spinner" *ngIf="spinnerShowable">
+  <ngx-spinner
+    size = "medium"
+    type = "ball-clip-rotate"
+    [fullScreen] = "false"></ngx-spinner>
 </div>
