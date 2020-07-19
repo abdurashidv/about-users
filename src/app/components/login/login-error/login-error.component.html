@@ -1,0 +1,10 @@
+<div *ngIf="control.invalid && (control.dirty || control.touched)"
+     class="alert-danger custom-login-error">
+
+  <div *ngIf="control.errors.required">
+    {{name}} is required.
+  </div>
+  <div *ngIf="control.errors.minlength">
+    {{name}} must be at least 3 characters long.
+  </div>
+</div>
