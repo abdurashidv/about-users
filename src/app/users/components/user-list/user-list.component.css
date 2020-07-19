@@ -1,0 +1,14 @@
+table {
+  table-layout: fixed;
+}
+
+th,
+td {
+  border: 1px solid black;
+  width: 100px;
+  overflow: hidden;
+}
+
+.rashid {
+  width: 20px;
+}

@@ -9,6 +9,7 @@ const usersRoutes: Routes = [
   {path: '', component: AppComponent, children: [
       {path: 'users', component: UserListComponent},
       {path: 'user/:id', component: UserCreateComponent},
+      {path: 'create', component: UserCreateComponent},
     ]}
 ];
 

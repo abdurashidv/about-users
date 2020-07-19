@@ -24,7 +24,6 @@ import {TokenInterceptor} from './auth/TokenInterceptor';
     HttpClientModule
   ],
   providers: [
-    HttpService,
     AuthGuard,
     {
       provide: HTTP_INTERCEPTORS,

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {HttpService} from '../../../services/http.service';
+import {IUser} from '../../../modules/interface';
 
 @Component({
   selector: 'app-user-list',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserListComponent implements OnInit {
 
-  constructor() { }
+  searchText = '';
+  users: IUser[] = [];
+
+  constructor(private http: HttpService) { }
 
   ngOnInit() {
+    this.http.get('users/').subscribe(
+      response => {
+        this.users = response;
+        this.users.sort((a, b) => a.id - b.id);
+
+      }
+    );
   }
 
 }
