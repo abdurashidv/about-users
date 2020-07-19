@@ -6,7 +6,6 @@ import { AuthGuard } from './auth/auth.guards';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { MainRoutingModule } from './routing.module';
-import { HomeComponent } from './components/home/home.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { LoginErrorComponent } from './components/login/login-error/login-error.component';
@@ -16,7 +15,6 @@ import {TokenInterceptor} from './auth/TokenInterceptor';
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeComponent,
     LoginErrorComponent
   ],
   imports: [

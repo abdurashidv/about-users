@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     if (localStorage.getItem('token')) {
-      this.router.navigate(['/home']);
+      this.router.navigate(['/users']);
     }
     this.loginForm = new FormGroup({
       loginName: new FormControl('', [Validators.required, Validators.minLength(3)]),
@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
         .subscribe(
           (response: any) => {
             localStorage.setItem('token', response.token);
-            this.router.navigate(['/home']);
+            this.router.navigate(['/users']);
           },
           (error: any) => {
             this.loginErrorMessage = error.message;
