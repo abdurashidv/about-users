@@ -7,10 +7,9 @@ import {UserListComponent} from './components/user-list/user-list.component';
 import {UserCreateComponent} from './components/user-create/user-create.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {FilterusernamePipe} from './pipes/filterusername.pipe';
-import {NgxSpinnerModule} from 'ngx-spinner';
+import {NgxSpinnerModule, NgxSpinnerService} from 'ngx-spinner';
 import {UserErrorComponent} from './components/user-create/user-error/user-error.component';
 import {CustomSpinnerComponent} from './components/custom-spinner/custom-spinner.component';
-import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   imports: [
@@ -18,8 +17,7 @@ import {HttpClientModule} from '@angular/common/http';
     FormsModule,
     UsersRoutingModule,
     NgxSpinnerModule,
-    ReactiveFormsModule,
-    HttpClientModule
+    ReactiveFormsModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   declarations: [
@@ -32,6 +30,7 @@ import {HttpClientModule} from '@angular/common/http';
     CustomSpinnerComponent
   ],
   providers: [
+    NgxSpinnerService
   ],
 })
 
