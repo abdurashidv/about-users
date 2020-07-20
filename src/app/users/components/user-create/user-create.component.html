@@ -1,1 +1,92 @@
-<p>user-create works!</p>
+<div class="row">
+  <div class="col-sm-0 col-md-1 col-lg-1"></div>
+  <div class="col-sm-12 col-md-11 col-lg-11">
+    <div class="float-left">
+      <h1>{{action}} User</h1>
+    </div>
+    <div class="float-right">
+      <button class="btn btn-dark" (click)="processUser();">{{action}}</button>
+    </div>
+  </div>
+</div>
+<form class="create-user" *ngIf="userForm" [formGroup]="userForm">
+  <div class="form-group row">
+    <div class="col-sm-0 col-md-1 col-lg-1"></div>
+    <label for="username" class="col-sm-3 col-md-2 col-lg-2 col-form-label float-right">Username</label>
+    <div class="col-sm-9 col-md-8 col-lg-7">
+      <input type="text" class="form-control" id="username" formControlName="username">
+      <div>
+        <app-user-error [control]="username" [name]="'Username'"></app-user-error>
+      </div>
+    </div>
+    <div class="col-sm-0 col-md-1 col-lg-2"></div>
+  </div>
+  <div class="form-group row">
+    <div class="col-sm-0 col-md-1 col-lg-1"></div>
+    <label for="firstname" class="col-sm-3 col-md-2 col-lg-2 col-form-label">First name</label>
+    <div class="col-sm-9 col-md-8 col-lg-7">
+      <input type="text" class="form-control" id="firstname" formControlName="first_name">
+      <div>
+        <app-user-error [control]="first_name" [name]="'First name'"></app-user-error>
+      </div>
+    </div>
+    <div class="col-sm-0 col-md-1 col-lg-2"></div>
+  </div>
+  <div class="form-group row">
+    <div class="col-sm-0 col-md-1 col-lg-1"></div>
+    <label for="lastname" class="col-sm-3 col-md-2 col-lg-2 col-form-label">Last name</label>
+    <div class="col-sm-9 col-md-8 col-lg-7">
+      <input type="text" class="form-control" id="lastname" formControlName="last_name">
+      <div>
+        <app-user-error [control]="last_name" [name]="'Last name'"></app-user-error>
+      </div>
+    </div>
+    <div class="col-sm-0 col-md-1 col-lg-2"></div>
+  </div>
+  <div class="form-group row">
+    <div class="col-sm-0 col-md-1 col-lg-1"></div>
+    <label for="password" class="col-sm-3 col-md-2 col-lg-2 col-form-label">Password</label>
+    <div class="col-sm-9 col-md-8 col-lg-7">
+      <input type="text" class="form-control" id="password" formControlName="password">
+      <div>
+        <app-user-error [control]="password" [name]="'Password'"></app-user-error>
+      </div>
+    </div>
+    <div class="col-sm-0 col-md-1 col-lg-2"></div>
+  </div>
+  <div class="form-group row">
+    <div class="col-sm-0 col-md-1 col-lg-1"></div>
+    <label for="active" class="col-sm-3 col-md-2 col-lg-2 col-form-label">Active</label>
+    <div class="col-sm-9 col-md-8 col-lg-7">
+      <input class="form-check-input" type="checkbox" id="active" formControlName="is_active">
+      <div>
+        <app-user-error [control]="is_active" [name]="'Active'"></app-user-error>
+      </div>
+    </div>
+    <div class="col-sm-0 col-md-1 col-lg-2"></div>
+  </div>
+  <div class="form-group row">
+    <div class="col-sm-0 col-md-1 col-lg-1"></div>
+    <label for="last_login" class="col-sm-3 col-md-2 col-lg-2 col-form-label">Last login</label>
+    <div class="col-sm-9 col-md-8 col-lg-7">
+      <input type="text" class="form-control" id="last_login" formControlName="last_login">
+      <div>
+        <app-user-error [control]="last_login" [name]="'Last login'"></app-user-error>
+      </div>
+    </div>
+    <div class="col-sm-0 col-md-1 col-lg-2"></div>
+  </div>
+  <div class="form-group row">
+    <div class="col-sm-0 col-md-1 col-lg-1"></div>
+    <label for="supervisor" class="col-sm-3 col-md-2 col-lg-2 col-form-label">Supervisor</label>
+    <div class="col-sm-9 col-md-8 col-lg-7">
+      <div>
+        <input class="form-check-input" type="checkbox" id="supervisor" formControlName="is_supervisor">
+      </div>
+      <div>
+        <app-user-error [control]="is_supervisor" [name]="'Supervisor'"></app-user-error>
+      </div>
+    </div>
+    <div class="col-sm-0 col-md-1 col-lg-2"></div>
+  </div>
+</form>

@@ -51,6 +51,11 @@ export class UserListComponent implements OnInit {
         }
         this.spinner.hide();
         this.spinnerShowable = false;
+      },
+      (error) => {
+        this.noUser = 'There was an issue retrieving data. Please, retry later.';
+        this.spinner.hide();
+        this.spinnerShowable = false;
       }
     );
   }

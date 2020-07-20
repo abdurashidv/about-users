@@ -38,7 +38,7 @@ export class HttpService {
       );
   }
 
-  get(url: string, params: any = {}): Observable<any> {
+  get(url: string, params: any = {}): any {
     return this.http.get<any>(this.apiurl + url, { headers: this.headers });
   }
 

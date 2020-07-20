@@ -1,0 +1,16 @@
+<div *ngIf="control.invalid && (control.dirty || control.touched)"
+     class="alert-danger custom-error">
+
+  <div *ngIf="control.errors.required">
+    {{name}} is required.
+  </div>
+  <div *ngIf="control.errors.minlength">
+    {{name}} must be at least {{formControl.errors.minLength.requiredLength}} characters long.
+  </div>
+  <div *ngIf="control.errors.maxlength">
+    {{name}} must be at least {{formControl.errors.maxlength.requiredLength}} characters long.
+  </div>
+  <div *ngIf="control.errors.pattern">
+    {{name}} does not mathch pattern.
+  </div>
+</div>

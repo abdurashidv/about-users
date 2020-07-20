@@ -5,16 +5,18 @@ import {AppComponent} from './components/app/app.component';
 import {HeaderComponent} from './layout/header/header.component';
 import {UserListComponent} from './components/user-list/user-list.component';
 import {UserCreateComponent} from './components/user-create/user-create.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {FilterusernamePipe} from './pipes/filterusername.pipe';
 import {NgxSpinnerModule} from 'ngx-spinner';
+import {UserErrorComponent} from './components/user-create/user-error/user-error.component';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     UsersRoutingModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    ReactiveFormsModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   declarations: [
@@ -22,6 +24,7 @@ import {NgxSpinnerModule} from 'ngx-spinner';
     HeaderComponent,
     UserListComponent,
     UserCreateComponent,
+    UserErrorComponent,
     FilterusernamePipe
   ],
   providers: [

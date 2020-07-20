@@ -50,6 +50,12 @@ body {
   border-top-right-radius: 0;
 }
 
-.custom-login-error {
+.custom-error {
   font-size: 14px;
+}
+
+.create-user .form-check-input {
+  position: relative !important;
+  margin-left: 0rem !important;
+  margin-top: 0.9rem;
 }
