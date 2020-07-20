@@ -2,15 +2,18 @@
      class="alert-danger custom-error">
 
   <div *ngIf="control.errors.required">
-    {{name}} is required.
+    {{name}} field is required.
   </div>
   <div *ngIf="control.errors.minlength">
     {{name}} must be at least {{formControl.errors.minLength.requiredLength}} characters long.
   </div>
   <div *ngIf="control.errors.maxlength">
-    {{name}} must be at least {{formControl.errors.maxlength.requiredLength}} characters long.
+    {{name}} must be at most {{formControl.errors.maxlength.requiredLength}} characters long.
   </div>
-  <div *ngIf="control.errors.pattern">
-    {{name}} does not mathch pattern.
+  <div *ngIf="control.errors.pattern && name.toLowerCase() === 'username'">
+    {{name}} can have letters, numbers, @-sign, and underscore sign.
+  </div>
+  <div *ngIf="control.errors.pattern && name.toLowerCase() === 'password'">
+    {{name}} must start with uppercase letter, must have a number and at least 8 characters. Ex: A2345678.
   </div>
 </div>
