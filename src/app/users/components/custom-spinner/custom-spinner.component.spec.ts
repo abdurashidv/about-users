@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CustomSpinnerComponent } from './custom-spinner.component';
+import {NgxSpinnerComponent, NgxSpinnerService} from 'ngx-spinner';
+import {NO_ERRORS_SCHEMA} from '@angular/core';
 
 describe('CustomSpinnerComponent', () => {
   let component: CustomSpinnerComponent;
@@ -8,7 +10,14 @@ describe('CustomSpinnerComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CustomSpinnerComponent ]
+      declarations: [
+        CustomSpinnerComponent,
+        NgxSpinnerComponent
+      ],
+      providers: [
+        NgxSpinnerService
+      ],
+      schemas: [NO_ERRORS_SCHEMA]
     })
     .compileComponents();
   }));

@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { UserErrorComponent } from './user-error.component';
+import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 
 describe('UserErrorComponent', () => {
   let component: UserErrorComponent;
@@ -8,7 +9,10 @@ describe('UserErrorComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UserErrorComponent ]
+      declarations: [
+        UserErrorComponent
+      ],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
     })
     .compileComponents();
   }));

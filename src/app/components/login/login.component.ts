@@ -10,7 +10,10 @@ import {Router} from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  loginForm: FormGroup;
+  loginForm: FormGroup =  new FormGroup({
+    loginName: new FormControl('', [Validators.required, Validators.minLength(3)]),
+    password: new FormControl('', [Validators.required, Validators.minLength(3)]),
+  });
   loginErrorMessage: string;
 
   constructor(
@@ -22,10 +25,10 @@ export class LoginComponent implements OnInit {
     if (localStorage.getItem('token')) {
       this.router.navigate(['/users']);
     }
-    this.loginForm = new FormGroup({
-      loginName: new FormControl('', [Validators.required, Validators.minLength(3)]),
-      password: new FormControl('', [Validators.required, Validators.minLength(3)]),
-    });
+    // this.loginForm = new FormGroup({
+    //   loginName: new FormControl('', [Validators.required, Validators.minLength(3)]),
+    //   password: new FormControl('', [Validators.required, Validators.minLength(3)]),
+    // });
   }
 
   loginUser() {
