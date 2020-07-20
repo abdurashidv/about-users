@@ -10,6 +10,7 @@ const usersRoutes: Routes = [
       {path: 'users', component: UserListComponent},
       {path: 'user/:id', component: UserCreateComponent},
       {path: 'create', component: UserCreateComponent},
+      {path: '**', component: UserListComponent},
     ]}
 ];
 
