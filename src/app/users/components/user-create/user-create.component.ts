@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {HttpService} from '../../../services/http.service';
 import {IUser} from '../../../modules/interface';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {NgxSpinnerService} from 'ngx-spinner';
 
 @Component({
   selector: 'app-user-create',
@@ -11,17 +12,20 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 })
 export class UserCreateComponent implements OnInit {
 
-  id = '';
   private readonly CREATE = 'Create';
   private readonly EDIT = 'Edit';
 
+  id = '';
   action = this.CREATE;
+  spinnerShowable = false;
   user: IUser = {} as any;
   userForm: FormGroup;
 
   constructor(
     private route: ActivatedRoute,
-    private http: HttpService
+    private http: HttpService,
+    private spinner: NgxSpinnerService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -35,21 +39,30 @@ export class UserCreateComponent implements OnInit {
   }
 
   getUserById(id: string) {
+    this.spinnerShowable = true;
+    this.spinner.show();
+
     this.http.get(`users/${id}/`).subscribe(
-      async (response) => {
-        this.user = await response;
+      (response) => {
+        this.spinnerShowable = false;
+        this.spinner.hide();
+
+        this.user = response;
         this.setUserInfo(id, response);
 
         // disable last_login and is_supervisor
         this.last_login.disable();
         this.is_supervisor.disable();
+      },
+      (error) => {
+        this.spinnerShowable = false;
+        this.spinner.hide();
       }
     );
   }
 
   processUser() {
     if (this.hasValidInputs()) {
-      this.disableFields();
       const body = {
         id: this.id,
         username: this.username.value,
@@ -69,7 +82,9 @@ export class UserCreateComponent implements OnInit {
       }
 
       request.subscribe(
-        (response) => {},
+        (response) => {
+          this.router.navigate(['/users']);
+        },
         (error) => {},
         (done) => {
           this.enableFields();

@@ -9,6 +9,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {LoginErrorComponent} from './components/login/login-error/login-error.component';
 import {TokenInterceptor} from './auth/TokenInterceptor';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import {TokenInterceptor} from './auth/TokenInterceptor';
     BrowserModule,
     MainRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [
     AuthGuard,

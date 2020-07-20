@@ -8,12 +8,6 @@ td {
   overflow: hidden;
 }
 
-.custom-spinner {
-  position: relative;
-  margin-top: -15px;
-  height: 200px;
-}
-
 .table-responsive {
   height:70vh;
   overflow:scroll;
