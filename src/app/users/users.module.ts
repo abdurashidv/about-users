@@ -9,6 +9,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {FilterusernamePipe} from './pipes/filterusername.pipe';
 import {NgxSpinnerModule} from 'ngx-spinner';
 import {UserErrorComponent} from './components/user-create/user-error/user-error.component';
+import {CustomSpinnerComponent} from './components/custom-spinner/custom-spinner.component';
 
 @NgModule({
   imports: [
@@ -25,7 +26,8 @@ import {UserErrorComponent} from './components/user-create/user-error/user-error
     UserListComponent,
     UserCreateComponent,
     UserErrorComponent,
-    FilterusernamePipe
+    FilterusernamePipe,
+    CustomSpinnerComponent
   ],
   providers: [
   ],

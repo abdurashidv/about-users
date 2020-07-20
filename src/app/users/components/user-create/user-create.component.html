@@ -9,14 +9,9 @@
     </div>
   </div>
 </div>
-<div class="custom-spinner" *ngIf="spinnerShowable">
-  <ngx-spinner
-    size = "large"
-    type = "ball-clip-rotate"
-    bdColor="#fff"
-    color="black"
-    [fullScreen] = "false"><p>Loading</p></ngx-spinner>
-</div>
+
+<app-custom-spinner [spinnerShowable]="spinnerShowable"></app-custom-spinner>
+
 <form class="create-user" *ngIf="userForm" [formGroup]="userForm">
   <div class="form-group row">
     <div class="col-sm-0 col-md-1 col-lg-1"></div>

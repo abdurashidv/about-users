@@ -22,6 +22,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     MainRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [
     AuthGuard,
