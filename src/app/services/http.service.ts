@@ -20,8 +20,8 @@ export class HttpService {
     'Authorization' : 'Token ' + localStorage.getItem('token')
   });
 
-  private readonly apiurl = 'http://emphasoft-test-assignment.herokuapp.com/api/v1/';
-  private readonly loginurl = 'http://emphasoft-test-assignment.herokuapp.com/api-token-auth/';
+  private readonly apiurl = 'https://emphasoft-test-assignment.herokuapp.com/api/v1/';
+  private readonly loginurl = 'https://emphasoft-test-assignment.herokuapp.com/api-token-auth/';
 
   constructor(private http: HttpClient) { }
 
