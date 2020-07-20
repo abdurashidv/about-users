@@ -10,6 +10,7 @@ import {FilterusernamePipe} from './pipes/filterusername.pipe';
 import {NgxSpinnerModule} from 'ngx-spinner';
 import {UserErrorComponent} from './components/user-create/user-error/user-error.component';
 import {CustomSpinnerComponent} from './components/custom-spinner/custom-spinner.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   imports: [
@@ -18,6 +19,7 @@ import {CustomSpinnerComponent} from './components/custom-spinner/custom-spinner
     UsersRoutingModule,
     NgxSpinnerModule,
     ReactiveFormsModule,
+    HttpClientModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   declarations: [
