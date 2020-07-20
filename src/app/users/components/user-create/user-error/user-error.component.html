@@ -5,10 +5,10 @@
     {{name}} field is required.
   </div>
   <div *ngIf="control.errors.minlength">
-    {{name}} must be at least {{formControl.errors.minLength.requiredLength}} characters long.
+    {{name}} must be at least {{control.errors.minLength.requiredLength}} characters long.
   </div>
   <div *ngIf="control.errors.maxlength">
-    {{name}} must be at most {{formControl.errors.maxlength.requiredLength}} characters long.
+    {{name}} must be at most {{control.errors.maxlength.requiredLength}} characters long.
   </div>
   <div *ngIf="control.errors.pattern && name.toLowerCase() === 'username'">
     {{name}} can have letters, numbers, @-sign, and underscore sign.
