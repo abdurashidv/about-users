@@ -96,3 +96,12 @@
     <div class="col-sm-0 col-md-1 col-lg-2"></div>
   </div>
 </form>
+
+<div class="row" *ngIf="error.show">
+  <div class="col-sm-0 col-md-1 col-lg-1"></div>
+  <div class="col-sm-12 col-md-11 col-lg-11">
+    <div class="rounded border border-danger text-center">
+      {{error.message}}
+    </div>
+  </div>
+</div>

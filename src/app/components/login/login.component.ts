@@ -14,7 +14,8 @@ export class LoginComponent implements OnInit {
     loginName: new FormControl('', [Validators.required, Validators.minLength(3)]),
     password: new FormControl('', [Validators.required, Validators.minLength(3)]),
   });
-  loginErrorMessage: string;
+  loginErrorMessages: any;
+  isDisabled = false;
 
   constructor(
     private http: HttpService,
@@ -25,14 +26,11 @@ export class LoginComponent implements OnInit {
     if (localStorage.getItem('token')) {
       this.router.navigate(['/users']);
     }
-    // this.loginForm = new FormGroup({
-    //   loginName: new FormControl('', [Validators.required, Validators.minLength(3)]),
-    //   password: new FormControl('', [Validators.required, Validators.minLength(3)]),
-    // });
   }
 
   loginUser() {
     if (this.hasValidInputs()) {
+      this.isDisabled = true;
       const body = {
         username: this.loginForm.value.loginName,
         password: this.loginForm.value.password
@@ -45,7 +43,8 @@ export class LoginComponent implements OnInit {
             this.router.navigate(['/users']);
           },
           (error: any) => {
-            this.loginErrorMessage = error.message;
+            this.isDisabled = false;
+            this.loginErrorMessages = error.error.non_field_errors;
           }
         );
     }

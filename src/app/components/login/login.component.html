@@ -1,8 +1,8 @@
 <div id="login-main" class="text-center">
   <form [formGroup]="loginForm" class="form-signin">
     <h1 class="h3 mb-3 font-weight-normal">ACCOUNT LOGIN</h1>
-    <div class="alert-danger mb-1 custom-login-error">
-      {{loginErrorMessage}}
+    <div class="alert-danger mb-1 custom-login-error" *ngFor="let error of loginErrorMessages">
+      {{error}}
     </div>
 
     <div class="mb-1">
@@ -31,6 +31,7 @@
 
     <div class="mt-3">
       <button
+        [disabled]="isDisabled"
         type="button"
         (click)="loginUser();"
         id="signin"

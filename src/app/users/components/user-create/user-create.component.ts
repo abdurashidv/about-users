@@ -20,6 +20,10 @@ export class UserCreateComponent implements OnInit {
   spinnerShowable = false;
   user: IUser = {} as any;
   userForm: FormGroup;
+  error = {
+    show: false,
+    message: ''
+  };
 
   constructor(
     private route: ActivatedRoute,
@@ -30,6 +34,7 @@ export class UserCreateComponent implements OnInit {
 
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get('id');
+    this.error.show = false;
     if (this.id) {
       this.action = this.EDIT;
       this.getUserById(this.id);
@@ -41,8 +46,9 @@ export class UserCreateComponent implements OnInit {
   getUserById(id: string) {
     this.spinnerShowable = true;
     this.spinner.show();
+    this.error.show = false;
 
-    this.http.get(`users/${id}/`).subscribe(
+    this.http.get(`users/${id}`).subscribe(
       (response) => {
         this.spinnerShowable = false;
         this.spinner.hide();
@@ -55,6 +61,8 @@ export class UserCreateComponent implements OnInit {
         this.is_supervisor.disable();
       },
       (error) => {
+        this.error.show = true;
+        this.error.message = error.error.detail;
         this.spinnerShowable = false;
         this.spinner.hide();
       }

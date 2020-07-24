@@ -15,6 +15,7 @@ export class UserListComponent implements OnInit {
   searchText = '';
   spinnerShowable = false;
   noUser = '';
+  isAscending = true;
 
   users: IUser[] = [];
 
@@ -60,4 +61,14 @@ export class UserListComponent implements OnInit {
     );
   }
 
+  sortById() {
+    this.isAscending = !this.isAscending;
+    this.users.sort((a, b) => {
+      if (this.isAscending) {
+        return a.id - b.id;
+      } else {
+        return b.id - a.id;
+      }
+    });
+  }
 }

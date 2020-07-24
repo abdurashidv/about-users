@@ -18,3 +18,24 @@ thead tr:nth-child(1) th{
   top: 0;
   z-index: 10;
 }
+
+.header-id {
+  width:40px;
+  cursor: pointer;
+}
+
+.custom-icon {
+  display: inline-block;
+  font-size: inherit;
+  text-rendering: auto;
+  margin-left: 5px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.custom-arrow-up:before {
+  content: "\2191";
+}
+
+.custom-arrow-down:before {
+  content: "\2193";
+}
